@@ -1,7 +1,5 @@
 package com.example.demo.service;
 
-package com.example.demo.service;
-
 import com.example.demo.repo.Blogs;
 import com.example.demo.repo.BlogsRepository;
 import com.example.demo.ResourceNotFoundException;
