@@ -17,12 +17,11 @@ import com.example.demo.ResourceNotFoundException;
 import com.example.demo.repo.Blogs;
 import com.example.demo.service.BlogsService;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @RestController
 @RequestMapping("/blogs")
-@Tag(name = "Blogs", description = "Operations related to blog posts")
+
 public class BlogsController {
 
 	@Autowired
@@ -38,10 +37,10 @@ public class BlogsController {
 		return blogservice.getById(id);
 	}
 
-	@PostMapping()
-	public ResponseEntity<Void> createBlogs(@RequestBody Blogs blog) {
-		blogservice.createBlogs(blog);
-		return ResponseEntity.status(HttpStatus.CREATED).build();
+@PostMapping()
+	public ResponseEntity<Blogs> createBlogs(@RequestBody Blogs blog) {
+		Blogs blogs=blogservice.createBlogs(blog);
+		return ResponseEntity.status(HttpStatus.CREATED).body(blogs);
 	}
 
 	@DeleteMapping("/delete/{id}")
