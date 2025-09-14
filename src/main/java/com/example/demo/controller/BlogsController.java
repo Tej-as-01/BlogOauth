@@ -17,8 +17,12 @@ import com.example.demo.ResourceNotFoundException;
 import com.example.demo.repo.Blogs;
 import com.example.demo.service.BlogsService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/blogs")
+@Tag(name = "Blogs", description = "Operations related to blog posts")
 public class BlogsController {
 
 	@Autowired
