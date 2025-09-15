@@ -39,9 +39,9 @@ public class BlogsController {
 	}
 
 	@PostMapping()
-	public ResponseEntity<Void> createBlogs(@RequestBody Blogs blog) {
-		blogservice.createBlogs(blog);
-		return ResponseEntity.status(HttpStatus.CREATED).build();
+	public ResponseEntity<Blogs> createBlogs(@RequestBody Blogs blog) {
+		Blogs blogs=blogservice.createBlogs(blog);
+		return ResponseEntity.status(HttpStatus.CREATED).body(blogs);
 	}
 
 	@DeleteMapping("/delete/{id}")

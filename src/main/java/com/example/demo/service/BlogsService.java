@@ -24,9 +24,9 @@ public class BlogsService {
 				.orElseThrow(() -> new ResourceNotFoundException("Blog not found with id: " + id));
 	}
 
-	public void createBlogs(Blogs blog) {
+	public Blogs createBlogs(Blogs blog) {
 
-		blogsRepository.save(blog);
+		return blogsRepository.save(blog);
 
 	}
 
