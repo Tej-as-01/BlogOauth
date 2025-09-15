@@ -1,11 +1,8 @@
 package com.example.demo.controller;
 
-
-
 import com.example.demo.repo.Blogs;
 import com.example.demo.repo.BlogsRepository;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,10 +14,11 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -28,6 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @ActiveProfiles("mysql-test")
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@Transactional  
 class BlogsControllerIntegrationTest {
 
     @Autowired
@@ -35,11 +34,6 @@ class BlogsControllerIntegrationTest {
 
     @Autowired
     private BlogsRepository blogsRepository;
-
-    @BeforeEach
-    void cleanDatabase() {
-        blogsRepository.deleteAll();
-    }
 
     @Test
     @DisplayName("Integration-Test GET /blogs")
