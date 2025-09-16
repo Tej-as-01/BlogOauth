@@ -37,7 +37,7 @@ public class BlogsController {
 		return blogservice.getById(id);
 	}
 
-@PostMapping()
+@PostMapping("/post")
 	public ResponseEntity<Blogs> createBlogs(@RequestBody Blogs blog) {
 		Blogs blogs=blogservice.createBlogs(blog);
 		return ResponseEntity.status(HttpStatus.CREATED).body(blogs);
