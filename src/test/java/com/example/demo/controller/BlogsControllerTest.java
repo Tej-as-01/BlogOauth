@@ -119,7 +119,7 @@ class BlogsControllerTest {
                 }
                 """;
 
-        mockMvc.perform(post("/blogs")
+        mockMvc.perform(post("/blogs/post")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated())
@@ -127,6 +127,36 @@ class BlogsControllerTest {
 
         verify(blogservice, times(1)).createBlogs(any(Blogs.class));
     }
+    
+    @Test
+    @DisplayName("Unit-Test PUT /blogs/update/{id}")
+    void testUpdateBlog() throws Exception {
+        Blogs updatedBlog = new Blogs();
+        updatedBlog.setId(1L);
+        updatedBlog.setTitle("Updated Title");
+        updatedBlog.setCreatorName("Updated Author");
+        updatedBlog.setDate("15/09/2025");
+        updatedBlog.setContent("Updated Content");
+
+        doNothing().when(blogservice).updateBlogs(eq(1L), any(Blogs.class));
+
+        String json = """
+                {
+                  "title": "Updated Title",
+                  "creatorName": "Updated Author",
+                  "date": "15/09/2025",
+                  "content": "Updated Content"
+                }
+                """;
+
+        mockMvc.perform(put("/blogs/update/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk());
+
+        verify(blogservice, times(1)).updateBlogs(eq(1L), any(Blogs.class));
+    }
+
 
     @Test
     @DisplayName("Unit-Test DELETE /blogs/delete/{id}")
