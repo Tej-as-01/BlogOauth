@@ -90,6 +90,29 @@ public class BlogsServiceTest {
         assertThat(saved.getTitle()).isEqualTo("First Message");
         verify(blogsRepository, times(1)).save(blog1);
     }
+    
+    @Test
+    @DisplayName("UPDATE BLOG - SUCCESS")
+    public void updateBlogSuccessTest() {
+        Blogs updatedBlog = new Blogs();
+        updatedBlog.setTitle("Updated Title");
+        updatedBlog.setCreatorName("Updated Name");
+        updatedBlog.setDate("15/09/2025");
+        updatedBlog.setContent("Updated Content");
+
+        when(blogsRepository.findById(1L)).thenReturn(Optional.of(blog1));
+        when(blogsRepository.save(any(Blogs.class))).thenReturn(blog1);
+
+        blogsService.updateBlogs(1L, updatedBlog);
+
+        assertThat(blog1.getTitle()).isEqualTo("Updated Title");
+        assertThat(blog1.getCreatorName()).isEqualTo("Updated Name");
+        assertThat(blog1.getDate()).isEqualTo("15/09/2025");
+        assertThat(blog1.getContent()).isEqualTo("Updated Content");
+
+        verify(blogsRepository, times(1)).save(blog1);
+    }
+
 
     @Test
     @DisplayName("DELETE BLOG BY ID - SUCCESS")
