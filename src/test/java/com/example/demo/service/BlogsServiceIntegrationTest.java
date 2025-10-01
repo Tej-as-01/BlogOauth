@@ -93,6 +93,37 @@ public class BlogsServiceIntegrationTest {
 
         assertThat(ex.getMessage()).contains("Blog not found with id");
     }
+    @Test
+    @DisplayName("Update Blog - Should Modify Existing Blog")
+    public void updateBlogTest() throws ResourceNotFoundException {
+        
+        Blogs original = new Blogs();
+        original.setTitle("Original Title");
+        original.setCreatorName("Original Author");
+        original.setDate("15/09/2025");
+        original.setContent("Original Content");
+
+        Blogs saved = blogsService.createBlogs(original);
+        Long id = saved.getId();
+
+       
+        Blogs updated = new Blogs();
+        updated.setTitle("Updated Title");
+        updated.setCreatorName("Updated Author");
+        updated.setDate("16/09/2025");
+        updated.setContent("Updated Content");
+
+       
+        blogsService.updateBlogs(id, updated);
+
+       
+        Blogs result = blogsService.getById(id);
+
+        assertThat(result.getTitle()).isEqualTo("Updated Title");
+        assertThat(result.getCreatorName()).isEqualTo("Updated Author");
+        assertThat(result.getDate()).isEqualTo("16/09/2025");
+        assertThat(result.getContent()).isEqualTo("Updated Content");
+    }
 
     @Test
     @DisplayName("Delete Blog By ID - Should Remove Blog")
