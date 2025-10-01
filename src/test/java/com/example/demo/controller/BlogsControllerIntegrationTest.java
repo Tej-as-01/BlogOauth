@@ -12,9 +12,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.TestSecurityConfig;
 import com.example.demo.repo.Blogs;
@@ -28,7 +26,7 @@ public class BlogsControllerIntegrationTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    @DisplayName("POST and GET Blog")
+    @DisplayName("Integration-Test POST and GET Blog")
     public void createAndGetBlogTest() {
         Blogs blog = new Blogs();
         blog.setTitle("Integration Blog");
@@ -49,7 +47,7 @@ public class BlogsControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("PUT and GET Blog")
+    @DisplayName("Integration-Test PUT and GET Blog")
     public void updateBlogTest() {
         Blogs blog = new Blogs();
         blog.setTitle("Original Title");
@@ -82,7 +80,7 @@ public class BlogsControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("DELETE Blog by ID")
+    @DisplayName("Integration-Test Delete Blog by ID")
     public void deleteBlogByIdTest() {
         Blogs blog = new Blogs();
         blog.setTitle("To Be Deleted");
@@ -104,7 +102,7 @@ public class BlogsControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("DELETE All Blogs")
+    @DisplayName("Integration-Test Delete all blogs")
     public void deleteAllBlogsTest() {
         Blogs blog1 = new Blogs();
         blog1.setTitle("Blog One");

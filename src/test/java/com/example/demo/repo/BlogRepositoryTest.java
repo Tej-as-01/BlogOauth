@@ -1,10 +1,8 @@
 package com.example.demo.repo;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.List;
 import java.util.Optional;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +23,7 @@ public class BlogRepositoryTest {
 	TestEntityManager entityManager;
 	
 	@Test
-	@DisplayName("Integration-Test save blogs")
+	@DisplayName("Integration-Test Save blogs")
 	public void testSaveBlogs()
 	{
 		Blogs blog=new Blogs();
@@ -41,7 +39,7 @@ public class BlogRepositoryTest {
 	
 
     @Test
-    @DisplayName("Integration-Test find blog by ID")
+    @DisplayName("Integration-Test Find blog by ID")
     public void testFindById() {
         Blogs blog = new Blogs();
         blog.setTitle("Find Me");
@@ -57,7 +55,7 @@ public class BlogRepositoryTest {
     }
 
     @Test
-    @DisplayName("Integration-Test find all blogs")
+    @DisplayName("Integration-Test Find all blogs")
     public void testFindAll() {
         Blogs blog1 = new Blogs();
         blog1.setTitle("Blog One");
@@ -80,7 +78,7 @@ public class BlogRepositoryTest {
     }
 
     @Test
-    @DisplayName("Integration-Test delete blog by ID")
+    @DisplayName("Integration-Test Delete blog by ID")
     public void testDeleteById() {
         Blogs blog = new Blogs();
         blog.setTitle("Delete Me");
@@ -96,7 +94,7 @@ public class BlogRepositoryTest {
     }
 
     @Test
-    @DisplayName("Integration-Test delete all blogs")
+    @DisplayName("Integration-Test Delete all blogs")
     public void testDeleteAll() {
         Blogs blog1 = new Blogs();
         blog1.setTitle("Blog One");

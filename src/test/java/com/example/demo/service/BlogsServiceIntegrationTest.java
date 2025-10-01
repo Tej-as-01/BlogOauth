@@ -33,7 +33,7 @@ public class BlogsServiceIntegrationTest {
     }
 
     @Test
-    @DisplayName("Save Blog - Should Persist Successfully")
+    @DisplayName("Integration-Test Save Blog")
     public void saveBlogTest() {
         Blogs blog = new Blogs();
         blog.setTitle("Integration Blog");
@@ -48,7 +48,7 @@ public class BlogsServiceIntegrationTest {
     }
 
     @Test
-    @DisplayName("Get All Blogs - Should Return List")
+    @DisplayName("Integration-Test Get All Blogs ")
     public void getAllBlogsTest() {
         Blogs blog = new Blogs();
         blog.setTitle("Another Blog");
@@ -67,7 +67,7 @@ public class BlogsServiceIntegrationTest {
     }
 
     @Test
-    @DisplayName("Get Blog By ID - Should Return Blog")
+    @DisplayName("Integration-Test Get Blog By ID")
     public void getBlogByIdTest() throws ResourceNotFoundException {
         Blogs blog = new Blogs();
         blog.setTitle("Find Me");
@@ -83,7 +83,7 @@ public class BlogsServiceIntegrationTest {
     }
 
     @Test
-    @DisplayName("Get Blog By Missing ID - Should Throw Exception")
+    @DisplayName("Integration-Test Get Blog By Missing ID - Should Throw Exception")
     public void getBlogByMissingIdTest() {
         Long missingId = 999L;
 
@@ -94,7 +94,7 @@ public class BlogsServiceIntegrationTest {
         assertThat(ex.getMessage()).contains("Blog not found with id");
     }
     @Test
-    @DisplayName("Update Blog - Should Modify Existing Blog")
+    @DisplayName("Integration-Test Update Blog")
     public void updateBlogTest() throws ResourceNotFoundException {
         
         Blogs original = new Blogs();
@@ -126,7 +126,7 @@ public class BlogsServiceIntegrationTest {
     }
 
     @Test
-    @DisplayName("Delete Blog By ID - Should Remove Blog")
+    @DisplayName("Integration-Test Delete Blog By ID")
     public void deleteBlogByIdTest() throws ResourceNotFoundException {
         Blogs blog = new Blogs();
         blog.setTitle("Delete Me");
@@ -143,7 +143,7 @@ public class BlogsServiceIntegrationTest {
     }
 
     @Test
-    @DisplayName("Delete All Blogs - Should Clear Table")
+    @DisplayName("Integration-Test Delete All Blogs")
     public void deleteAllBlogsTest() {
         Blogs blog1 = new Blogs();
         blog1.setTitle("Blog One");

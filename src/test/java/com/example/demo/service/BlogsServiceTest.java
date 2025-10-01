@@ -50,7 +50,7 @@ public class BlogsServiceTest {
     }
 
     @Test
-    @DisplayName("GETTING ALL BLOGS")
+    @DisplayName("Unit-Test Getting All Blogs")
     public void getProductsTest() {
         when(blogsRepository.findAll()).thenReturn(new ArrayList<>(List.of(blog1, blog2)));
 
@@ -62,7 +62,7 @@ public class BlogsServiceTest {
     }
 
     @Test
-    @DisplayName("GET BLOG BY ID")
+    @DisplayName("Unit-Test Get Blog By Id")
     public void getBlogByIdSuccessTest() throws ResourceNotFoundException {
         when(blogsRepository.findById(1L)).thenReturn(Optional.of(blog1));
 
@@ -73,7 +73,7 @@ public class BlogsServiceTest {
     }
 
     @Test
-    @DisplayName("GET BLOG BY ID - NOT FOUND")
+    @DisplayName("Unit-Test Get Blog By Id- Not Found")
     public void getBlogByIdFailureTest() {
         when(blogsRepository.findById(3L)).thenReturn(Optional.empty());
 
@@ -81,7 +81,7 @@ public class BlogsServiceTest {
     }
 
     @Test
-    @DisplayName("CREATE BLOG")
+    @DisplayName("Unit-Test Create Blog")
     public void createBlogTest() {
         when(blogsRepository.save(blog1)).thenReturn(blog1);
         Blogs saved = blogsService.createBlogs(blog1);
@@ -92,7 +92,7 @@ public class BlogsServiceTest {
     }
     
     @Test
-    @DisplayName("UPDATE BLOG - SUCCESS")
+    @DisplayName("Unit-Test Update Blog - Success")
     public void updateBlogSuccessTest() {
         Blogs updatedBlog = new Blogs();
         updatedBlog.setTitle("Updated Title");
@@ -115,7 +115,7 @@ public class BlogsServiceTest {
 
 
     @Test
-    @DisplayName("DELETE BLOG BY ID - SUCCESS")
+    @DisplayName("Unit Test-Delete Blog By Id - Success")
     public void deleteBlogByIdSuccessTest() throws ResourceNotFoundException {
         when(blogsRepository.existsById(1L)).thenReturn(true);
         doNothing().when(blogsRepository).deleteById(1L);
@@ -126,7 +126,7 @@ public class BlogsServiceTest {
     }
 
     @Test
-    @DisplayName("DELETE BLOG BY ID - NOT FOUND")
+    @DisplayName("Unit-Test Delete Blog By Id - Not Found")
     public void deleteBlogByIdFailureTest() {
         when(blogsRepository.existsById(3L)).thenReturn(false);
 
@@ -134,7 +134,7 @@ public class BlogsServiceTest {
     }
 
     @Test
-    @DisplayName("DELETE ALL BLOGS")
+    @DisplayName("Unit-Test Delete All Blogs")
     public void deleteAllBlogsTest() {
         doNothing().when(blogsRepository).deleteAll();
 
