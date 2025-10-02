@@ -16,7 +16,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.example.demo.ResourceNotFoundException;
+import com.example.demo.Exceptions.ResourceNotFoundException;
 import com.example.demo.repo.Blogs;
 import com.example.demo.repo.BlogsRepository;
 

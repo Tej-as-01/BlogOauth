@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.ResourceNotFoundException;
+import com.example.demo.Exceptions.ResourceNotFoundException;
 import com.example.demo.repo.Blogs;
 import com.example.demo.repo.BlogsRepository;
 

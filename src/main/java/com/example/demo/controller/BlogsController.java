@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.ResourceNotFoundException;
+import com.example.demo.Exceptions.ResourceNotFoundException;
 import com.example.demo.repo.Blogs;
 import com.example.demo.service.BlogsService;
 
