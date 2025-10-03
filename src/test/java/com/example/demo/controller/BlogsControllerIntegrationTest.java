@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.example.demo.TestSecurityConfig;
-import com.example.demo.repo.Blogs;
+import com.example.demo.model.Blogs;
 
 @ActiveProfiles("test")
 @Import(TestSecurityConfig.class)

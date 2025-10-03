@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
-import com.example.demo.repo.Blogs;
-import com.example.demo.repo.BlogsRepository;
+import com.example.demo.model.Blogs;
+import com.example.demo.repository.BlogsRepository;
 
 import jakarta.transaction.Transactional;
 

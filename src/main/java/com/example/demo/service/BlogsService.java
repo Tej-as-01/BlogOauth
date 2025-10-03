@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
-import com.example.demo.repo.Blogs;
-import com.example.demo.repo.BlogsRepository;
+import com.example.demo.model.Blogs;
+import com.example.demo.repository.BlogsRepository;
 
 @Service
 public class BlogsService {

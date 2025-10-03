@@ -17,8 +17,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
-import com.example.demo.repo.Blogs;
-import com.example.demo.repo.BlogsRepository;
+import com.example.demo.model.Blogs;
+import com.example.demo.repository.BlogsRepository;
 
 @ExtendWith(MockitoExtension.class)
 public class BlogsServiceTest {

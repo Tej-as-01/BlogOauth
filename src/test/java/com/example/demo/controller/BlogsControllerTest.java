@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
-import com.example.demo.repo.Blogs;
+import com.example.demo.model.Blogs;
 import com.example.demo.service.BlogsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

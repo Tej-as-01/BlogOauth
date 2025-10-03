@@ -11,6 +11,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 
+import com.example.demo.model.Blogs;
+import com.example.demo.repository.BlogsRepository;
+
 @DataJpaTest
 @ActiveProfiles("mysql-test")
 @AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
