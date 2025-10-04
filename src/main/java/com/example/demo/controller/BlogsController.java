@@ -21,6 +21,9 @@ import com.example.demo.service.BlogsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+/**
+ * REST controller for managing blog-related CRUD operations.
+ */
 @RestController
 @RequestMapping("/blogs")
 @Tag(name = "Blogs", description = "Operations related to blog posts")
@@ -29,18 +32,34 @@ public class BlogsController {
 	@Autowired
 	private BlogsService blogservice;
 
+	 /**
+     * Retrieves all blog entries.
+     * @return List of all blogs
+     */
 	@GetMapping()
 	@Operation(summary="Getting all Blogs",description="Returns a list of all blogs present")
 	public List<Blogs> getAllBlogs() {
 		return blogservice.getAllBlogs();
 	}
 
+	/**
+     * Retrieves a blog by its ID.
+     * @param id Blog ID
+     * @return Blog object
+     * @throws ResourceNotFoundException if blog not found
+     */
+	
 	@GetMapping("/{id}")
 	@Operation(summary="Getting Blogs by ID",description="Returns a single blog by its ID")
 	public Blogs getById(@PathVariable("id") Long id) throws ResourceNotFoundException {
 		return blogservice.getById(id);
 	}
 
+	 /**
+     * Creates a new blog entry.
+     * @param blog Blog object from request body
+     * @return Created blog with HTTP status 201
+     */
 	@PostMapping("/post")
 	@Operation(summary="Posting the Blogs", description="Creates a new blog")
 	public ResponseEntity<Blogs> createBlogs(@RequestBody Blogs blog) {
@@ -48,6 +67,11 @@ public class BlogsController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(blogs);
 	}
 
+	 /**
+     * Updates an existing blog by its ID.
+     * @param id Blog ID
+     * @param blog Updated blog data
+     */
 	@PutMapping("/update/{id}")
 	@Operation(summary="Updating the Blogs",description="Updates the blog by its ID")
 	public void updateBlogs(@PathVariable("id") Long id, @RequestBody Blogs blog)
@@ -55,12 +79,20 @@ public class BlogsController {
 		blogservice.updateBlogs(id,blog);
 	}
 	
+	 /**
+     * Deletes a blog by its ID.
+     * @param id Blog ID
+     * @throws ResourceNotFoundException if blog not found
+     */
 	@DeleteMapping("/delete/{id}")
 	@Operation(summary="Deleting Blogs by ID", description="Deletes a specific blog by its ID")
 	public void deleteById(@PathVariable("id") Long id) throws ResourceNotFoundException {
 		blogservice.deleteById(id);
 	}
-
+	
+	/**
+     * Deletes all blog entries.
+     */
 	@DeleteMapping("/delete")
 	@Operation(summary="Deleting all Blogs",description="Deletes all the blogs present")
 	public void deleteAll() {

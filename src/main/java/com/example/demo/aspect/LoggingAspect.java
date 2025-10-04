@@ -14,12 +14,14 @@ public class LoggingAspect {
 	
 	private static final Logger logger=LoggerFactory.getLogger(LoggingAspect.class);
 	
+	//Logs the method has started before the method execution starts
 	@Before("execution(* com.example.demo.service.*.*(..))")
 	public void logMethodStart(JoinPoint joinpoint)
 	{logger.info("Method started: {}",joinpoint.getSignature().toShortString());
 	
 	}
 	
+	//Logs the completion of method after the method successfully returns 	
 	@AfterReturning("execution(* com.example.demo.service.*.*(..))")
 	public void logMethodEnd(JoinPoint joinpoint)
 	{

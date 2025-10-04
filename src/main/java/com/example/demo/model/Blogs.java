@@ -7,6 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Entity class representing a blog post.
+ * Maps to the "Blogs" table in the database.
+ */
 @Entity
 @Table(name = "Blogs")
 public class Blogs {
@@ -27,10 +31,13 @@ public class Blogs {
 	@Column(nullable = false)
 	private String content;
 
+	
+	//Constructor
 	public Blogs() {
 
 	}
 
+	//Getters and Setters
 	public Long getId() {
 		return id;
 	}
